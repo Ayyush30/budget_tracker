@@ -50,4 +50,3 @@ Built using HTML, CSS, JavaScript, PHP, and MySQL as part of an Agile-based 5-we
 
 ---
 
-## 📂 Project Structure
