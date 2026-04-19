@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Budget Tracker - Week 4</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="index.css">
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<div class="container">
+  <h1>💰 Budget Tracker</h1>
+
+  <!-- FORM -->
+  <form id="transactionForm">
+    <input type="hidden" id="editIndex">
+
+    <input type="text" id="title" placeholder="Title" required>
+    <input type="number" id="amount" placeholder="Amount" required>
+    <input type="date" id="date" required>
+
+    <select id="category">
+      <option>Food</option>
+      <option>Bills</option>
+      <option>Transport</option>
+      <option>Shopping</option>
+      <option>Other</option>
+    </select>
+
+    <select id="type">
+      <option>Income</option>
+      <option>Expense</option>
+    </select>
+
+    <button type="submit">Save Transaction</button>
+  </form>
+
+  <!-- FILTERS -->
+  <div class="filters">
+    <select id="filterType">
+      <option value="All">All Types</option>
+      <option value="Income">Income</option>
+      <option value="Expense">Expense</option>
+    </select>
+
+    <select id="filterCategory">
+      <option value="All">All Categories</option>
+      <option>Food</option>
+      <option>Bills</option>
+      <option>Transport</option>
+      <option>Shopping</option>
+      <option>Other</option>
+    </select>
+
+    <select id="sortBy">
+      <option value="date">Sort by Date</option>
+      <option value="amount">Sort by Amount</option>
+    </select>
+
+    <button onclick="applyFilters()">Apply</button>
+  </div>
+
+  <!-- SUMMARY -->
+  <div class="summary">
+    <div>💵 Income: $<span id="totalIncome">0</span></div>
+    <div>💸 Expense: $<span id="totalExpense">0</span></div>
+    <div>📊 Balance: $<span id="balance">0</span></div>
+  </div>
+
+  
+
+  <!-- TABLE -->
+  <h2>Transactions</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Amount</th>
+        <th>Date</th>
+        <th>Category</th>
+        <th>Type</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+
+    <tbody id="transactionTable"></tbody>
+  </table>
+
+
+<!-- CHARTS -->
+  <div class="charts">
+    <canvas id="pieChart"></canvas>
+    <canvas id="barChart"></canvas>
+  </div>
+
+</div>
+
+
+
+
+
+<!-- JS -->
+<script src="main.js"></script>
+
+</body>
+</html>
